@@ -400,6 +400,13 @@
       } else {
         $(".next").show();
       }
+
+      //if mobile always show previous and next buttons
+      if (window.innerWidth < 768) {
+        $(".previous").show();
+        $(".next").show();
+      }
+
       loadContent(currentIndex);
     });
 
