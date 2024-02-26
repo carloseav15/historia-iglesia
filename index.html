@@ -83,6 +83,37 @@
     .previous,
     .next {
       display: none;
+      padding: 0px 15px;
+    }
+
+    #img-cover {
+      width: 50%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    @media (max-width: 768px) {
+      #full-content {
+        width: 100%;
+      }
+
+      .nav-icon {
+        display: none;
+      }
+
+      .previous,
+      .next {
+        display: block;
+      }
+
+      #img-cover {
+        width: 100%;
+      }
+      .previous, .next {
+        font-size: 30px;
+        padding: 0px 5px;
+      }
+
     }
   </style>
 </head>
@@ -97,7 +128,7 @@
       justify-content: space-between;
       align-items: center;
       height: 100vh;">
-    <div style="padding: 0px 15px;">
+    <div>
       <span class="nav-icon previous" style="
     font-size: 50px;">&lt;</span>
     </div>
@@ -114,14 +145,14 @@
         <h1>LA HISTORIA DE LA IGLESIA</h1>
       </div>
       <div class="image-container">
-        <img id="img-cover" src="" alt="..." style="max-width: 50%;height:auto;border-radius: 10px;">
+        <img id="img-cover" src="" alt="...">
       </div>
       <p id="title" style="font-size: 1.75rem;margin-bottom: 25px;margin-top: 15px; font-weight: bold;"></p>
       <div id="subtitle"></div>
       <hr style="width: 75%;margin-bottom: 35px;">
       <div id="full-content"></div>
     </div>
-    <div style="padding: 0px 15px;">
+    <div>
       <span class="nav-icon next" style="font-size: 50px;">&gt;</span>
     </div>
   </div>
@@ -342,6 +373,12 @@
     //init icons
     $(".previous").hide();
     $(".next").show();
+
+    //display previous and next buttons on mobile
+    if (window.innerWidth < 768) {
+      $(".previous").show();
+      $(".next").show();
+    }
 
     //a function to navigate through the content, hide previous and next buttons when needed without jquery
     let currentIndex = 0;
