@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Historia de la Iglesia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inika&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <style>
+    body {
+      font-family: 'Inika', serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: white;
+      border: 1px solid #000;
+      padding: 20px;
+      max-width: 800px;
+      width: 100%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      margin-top: 80px;
+    }
+
+    .image-container {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .navigation {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-icon {
+      cursor: pointer;
+    }
+
+    .content {
+      margin-top: 20px;
+    }
+
+    hr {
+      border-top: 1px solid #000;
+    }
+
+    #full-content {
+      width: 60%;
+      margin-bottom: 100px;
+    }
+
+    #full-content h3 {
+      margin-bottom: 20px;
+      font-size: 1.50rem;
+    }
+
+    #full-content ul {
+      margin-bottom: 40px;
+      font-size: 1.05rem;
+    }
+
+    #subtitle ul {
+      font-size: 1.05rem;
+    }
+
+    #subtitle strong {
+      font-weight: bold !important;
+    }
+
+    .previous,
+    .next {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div style="
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-content: center;
+      justify-content: space-between;
+      align-items: center;
+      height: 100vh;">
+    <div style="padding: 0px 15px;">
+      <span class="nav-icon previous" style="
+    font-size: 50px;">&lt;</span>
+    </div>
+    <div style="
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-content: center;
+      /* justify-content: flex-start; */
+      align-items: center;
+      height: 100%;
+      overflow: scroll;">
+      <div class="header">
+        <h1>LA HISTORIA DE LA IGLESIA</h1>
+      </div>
+      <div class="image-container">
+        <img id="img-cover" src="" alt="..." style="max-width: 50%;height:auto;border-radius: 10px;">
+      </div>
+      <p id="title" style="font-size: 1.75rem;margin-bottom: 25px;margin-top: 15px; font-weight: bold;"></p>
+      <div id="subtitle"></div>
+      <hr style="width: 75%;margin-bottom: 35px;">
+      <div id="full-content"></div>
+    </div>
+    <div style="padding: 0px 15px;">
+      <span class="nav-icon next" style="font-size: 50px;">&gt;</span>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <script>
+    let items = [
+      {
+        title: "SIGLO I",
+        cover: "assets/img/s-I.webp",
+        subtitle: `<ul><li><strong>Circa 30 d.C.:</strong> Crucifixión y resurrección de Jesucristo, marcando el inicio del cristianismo.</li><li><strong>Circa 33 d.C.:</strong> Día de Pentecostés, considerado el nacimiento de la Iglesia Cristiana.</li></ul>`,
+        content: `
+        <h3>Contexto Histórico</h3>
+        <ul>
+          <li>
+            <strong>Imperio Romano:</strong> El cristianismo nació en un mundo dominado por el Imperio Romano, en una
+            región conocida como Judea, que era una provincia romana. Este contexto influyó en la difusión del
+            cristianismo, aprovechando las infraestructuras y la relativa paz (Pax Romana) que ofrecía el imperio.
+          </li>
+        </ul>
+
+        <h3>Vida y Enseñanzas de Jesucristo</h3>
+        <ul>
+          <li>
+            <strong>Circa 4 a.C.-30 d.C.:</strong> Se cree que Jesús de Nazaret nació alrededor del 4 a.C. y su
+            ministerio público comenzó cuando tenía aproximadamente 30 años, centrado principalmente en Galilea y Judea.
+            Sus enseñanzas, milagros y parábolas formaron la base de las creencias cristianas. Eventos clave incluyen el
+            Sermón del Monte y la Última Cena con sus discípulos.
+          </li>
+        </ul>
+
+        <h3>Crucifixión y Resurrección</h3>
+        <ul>
+          <li>
+            <strong>Circa 30 d.C.:</strong> Jesús fue crucificado en Jerusalén bajo el gobierno del prefecto romano
+            Poncio Pilato. La resurrección de Jesús, tres días después de su crucifixión, es el fundamento de la fe
+            cristiana, celebrada en la Pascua.
+          </li>
+        </ul>
+
+        <h3>Pentecostés y el Nacimiento de la Iglesia</h3>
+        <ul>
+          <li>
+            <strong>Circa 30 d.C.:</strong> El evento de Pentecostés, donde se dice que el Espíritu Santo descendió
+            sobre los apóstoles y otros seguidores de Jesús, se considera el nacimiento de la Iglesia Cristiana. Este
+            evento habilitó a los apóstoles para comenzar la misión de predicar el evangelio.
+          </li>
+        </ul>
+
+        <h3>Expansión Temprana</h3>
+        <ul>
+          <li>
+            <strong>Décadas siguientes a Pentecostés:</strong> Los apóstoles y otros discípulos comenzaron a difundir
+            las enseñanzas de Jesús, primero entre los judíos y luego entre los gentiles (no judíos). La conversión del
+            apóstol Pablo y sus viajes misioneros fueron cruciales para la expansión del cristianismo más allá de Judea
+            hacia Asia Menor, Grecia y eventualmente Roma.
+          </li>
+        </ul>
+
+        <h3>Persecuciones</h3>
+        <ul>
+          <li>
+            <strong>Finales del siglo I:</strong> Los cristianos enfrentaron persecuciones esporádicas por parte de las
+            autoridades romanas, en parte debido a su negativa a adorar a los dioses romanos o al emperador. Estas
+            persecuciones variaron en intensidad y no fueron sistemáticas en todo el imperio durante el siglo I.
+          </li>
+        </ul>
+
+        <h3>Textos Fundamentales</h3>
+        <ul>
+          <li>
+            <strong>Finales del siglo I:</strong> Se escribieron muchos de los textos que eventualmente formarían el
+            Nuevo Testamento, incluyendo los Evangelios, las cartas de Pablo y otros escritos apostólicos. Estos textos
+            jugaron un papel crucial en la formación de la doctrina cristiana y la práctica comunitaria.
+          </li>
+        </ul>
+
+        <h3>Organización Comunitaria</h3>
+        <ul>
+          <li>
+            <strong>Final del siglo I:</strong> Las primeras comunidades cristianas se organizaban generalmente
+            alrededor de la figura de un obispo, asistido por presbíteros y diáconos. La Eucaristía (la Cena del Señor)
+            se convirtió en un ritual central de adoración comunitaria.
+          </li>
+        </ul>
+
+        <p>Este período inicial fue crítico para el establecimiento de las creencias, prácticas y estructuras
+          organizativas que definirían el cristianismo en los siglos siguientes.</p>
+            `
+      },
+      {
+        title: "Siglo II-III", cover: "assets/img/s-II-III.webp", subtitle: `<ul>
+  <li>Expansión del cristianismo en el Imperio Romano a pesar de las persecuciones.</li>
+</ul>`, content: `<h3>Siglo II-III</h3>
+  <p>El período del siglo II al III fue una era de consolidación, expansión y desarrollo teológico para el cristianismo, a pesar de enfrentar persecuciones periódicas por parte del Imperio Romano.</p>
+
+  <h4>Expansión y Diversidad</h4>
+  <ul>
+    <li><strong>Expansión geográfica:</strong> El cristianismo continuó expandiéndose más allá de Judea y el Mediterráneo oriental, llegando a zonas de Europa, Asia y África del Norte.</li>
+    <li><strong>Diversidad doctrinal:</strong> Este período vio el surgimiento de diversas interpretaciones teológicas, algunas de las cuales fueron posteriormente consideradas herejías por la ortodoxia emergente.</li>
+  </ul>
+
+  <h4>Persecuciones</h4>
+  <ul>
+    <li><strong>Persecuciones imperiales:</strong> Los cristianos enfrentaron persecuciones esporádicas y locales, que a veces se intensificaban en campañas más sistemáticas por parte de los emperadores romanos.</li>
+  </ul>
+
+  <h4>Apologistas Cristianos</h4>
+  <ul>
+    <li><strong>Defensa de la fe:</strong> Surgieron figuras conocidas como apologistas cristianos, quienes escribieron defensas del cristianismo en respuesta a las críticas paganas y las acusaciones de los gobernantes romanos.</li>
+  </ul>
+
+  <h4>Desarrollo Teológico y Canónico</h4>
+  <ul>
+    <li><strong>Formación del canon bíblico:</strong> Aunque el proceso fue gradual y no se completó en este período, las comunidades cristianas comenzaron a formar consensos sobre qué escritos debían considerarse autoritativos.</li>
+    <li><strong>Teología cristiana:</strong> Se desarrollaron importantes fundamentos teológicos, incluyendo la naturaleza de Cristo, la Trinidad y la salvación.</li>
+  </ul>
+
+  <h4>Organización Eclesiástica</h4>
+  <ul>
+    <li><strong>Estructura eclesiástica:</strong> La iglesia comenzó a organizarse en torno a una jerarquía más formal de obispos, presbíteros y diáconos.</li>
+  </ul>
+
+  <h4>Prácticas Devocionales</h4>
+  <ul>
+    <li><strong>Desarrollo litúrgico:</strong> Las prácticas de adoración y los rituales se volvieron más estructurados, incluyendo el bautismo y la Eucaristía como sacramentos centrales.</li>
+  </ul>
+
+  <h4>Mártires y Santos</h4>
+  <ul>
+    <li><strong>Culto a los mártires:</strong> Las historias de los cristianos que morían por su fe se convirtieron en una fuente importante de inspiración para la comunidad.</li>
+  </ul>
+
+  <p>El siglo II y III fueron fundamentales para el desarrollo del cristianismo, marcando el paso de una secta judía a una religión distinta con su propia identidad, teología, prácticas y estructuras organizativas. La capacidad del cristianismo para adaptarse, defenderse intelectualmente y mantener cohesión interna en medio de desafíos externos fue crucial para su supervivencia y crecimiento.</p>
+  `
+      },
+      {
+        title: "Siglo IV", cover: "assets/img/s-IV.webp", subtitle: `<ul>
+  <li><strong>313:</strong> Edicto de Milán, emitido por Constantino, legaliza el cristianismo en el Imperio Romano.</li>
+  <li><strong>325:</strong> Primer Concilio de Nicea, establecimiento del Credo Niceno.</li>
+</ul>`, content: `<p>El siglo IV fue un período trascendental en la historia del cristianismo, marcado por su transición de una religión perseguida a la fe dominante del Imperio Romano. Este siglo estuvo lleno de eventos significativos que moldearon el futuro del cristianismo:</p><h3>Legalización del Cristianismo</h3><ul><li><strong>313 d.C.:</strong> El Edicto de Milán, promulgado por los emperadores Constantino I y Licinio, otorgó libertad de culto a los cristianos y marcó el fin de las persecuciones oficiales. Este edicto permitió a los cristianos practicar su fe abiertamente y recuperar propiedades confiscadas durante las persecuciones.</li></ul><h3>Constantino y el Cristianismo</h3><ul><li><strong>Conversión de Constantino:</strong> Aunque el grado y la naturaleza de la conversión de Constantino al cristianismo son objeto de debate, su patrocinio y favor hacia el cristianismo tuvieron un impacto duradero en la religión. Constantino no solo proporcionó fondos para construir iglesias, sino que también adoptó el cristianismo como una parte importante de su gobierno.</li></ul><h3>Primer Concilio de Nicea</h3><ul><li><strong>325 d.C.:</strong> El Primer Concilio de Nicea fue convocado por Constantino para resolver la controversia arriana, que cuestionaba la divinidad de Jesucristo. El concilio produjo el Credo de Nicea, que estableció la coeternidad del Padre y el Hijo y fue un paso crucial en la definición de la ortodoxia cristiana.</li></ul><h3>El Papel de la Iglesia en el Estado</h3><ul><li><strong>Ascenso del Cristianismo como religión estatal:</strong> A lo largo del siglo IV, el cristianismo se fue integrando cada vez más en las estructuras del estado romano, adquiriendo privilegios y responsabilidades civiles. Los obispos comenzaron a desempeñar roles importantes en la administración y la justicia.</li></ul><h3>Desarrollo Teológico y Disputas</h3><ul><li><strong>Continuación de las controversias teológicas:</strong> Además del arrianismo, surgieron otras controversias teológicas, como el macedonianismo y el pelagianismo. Estos debates llevaron a la convocatoria de concilios y al desarrollo de una teología cristiana más refinada.</li></ul><h3>La Biblia Vulgata</h3><ul><li><strong>Traducción de la Biblia al latín:</strong> San Jerónimo comenzó a traducir la Biblia al latín, creando la Vulgata, que se convertiría en el texto bíblico autoritativo en la Iglesia Católica durante la Edad Media.</li></ul><h3>Monacato Cristiano</h3><ul><li><strong>Desarrollo del monacato:</strong> El siglo IV vio el nacimiento y la expansión del monacato cristiano, especialmente en Egipto y Siria. Figuras como San Antonio Abad y San Pacomio fueron pioneras en la vida monástica, que enfatizaba la oración, la pobreza y el aislamiento del mundo secular.</li></ul><h3>Construcción de Grandes Iglesias</h3><ul><li><strong>Construcción de basílicas y sitios de peregrinación:</strong> Constantino y sus sucesores construyeron importantes basílicas cristianas, incluyendo la Iglesia del Santo Sepulcro en Jerusalén y la Antigua Basílica de San Pedro en Roma. Estos sitios se convirtieron en centros importantes de peregrinación y adoración.</li></ul><h3>División del Imperio Romano</h3><ul><li><strong>División del Imperio:</strong> La división definitiva del Imperio Romano en Imperios de Occidente y Oriente bajo Teodosio I en 395 tuvo importantes implicaciones para el cristianismo, llevando eventualmente a diferencias culturales y teológicas que influirían en el Gran Cisma del siglo XI.</li></ul><p>El siglo IV estableció las bases para la identidad y la influencia del cristianismo en Europa y el Mediterráneo, sentando las bases para su papel predominante en la historia occidental subsiguiente.</p>`
+      },
+      {
+        title: "Siglo V", cover: "assets/img/s-V.webp", subtitle: `<ul>
+  <li><strong>410:</strong> Saqueo de Roma por los visigodos, simbólico para el cristianismo en cuanto a la caída del poder romano.</li>
+  <li><strong>431:</strong> Concilio de Éfeso, afirmó a María como Theotokos (Madre de Dios).</li>
+</ul>`, content: `<div class="markdown prose w-full break-words dark:prose-invert dark"><p>El siglo V fue un período de significativas transformaciones tanto para el Imperio Romano como para el cristianismo. Este siglo estuvo marcado por la caída del Imperio Romano de Occidente, el surgimiento del cristianismo como fuerza dominante en el ámbito religioso y político, y el desarrollo de doctrinas teológicas fundamentales. A continuación, se detallan algunos de los eventos y desarrollos clave:</p><h3>Caída del Imperio Romano de Occidente</h3><ul><li><strong>410:</strong> Saqueo de Roma por los visigodos liderados por Alarico I. Este evento fue simbólicamente significativo y marcó un punto de inflexión para el Imperio Romano de Occidente, señalando su declive.</li><li><strong>455:</strong> Los vándalos, bajo el liderazgo de Genserico, saquearon Roma nuevamente, exacerbando la debilidad del imperio.</li><li><strong>476:</strong> La deposición de Rómulo Augústulo por Odoacro, un líder militar germánico, es tradicionalmente considerada como el fin del Imperio Romano de Occidente. Este evento marcó el inicio de la Edad Media en Europa.</li></ul><h3>Desarrollo de la Teología Cristiana y Concilios Ecuménicos</h3><ul><li><strong>431, Concilio de Éfeso:</strong> Este concilio fue convocado para abordar la controversia nestoriana sobre la naturaleza de Cristo y la Virgen María. El concilio afirmó la doctrina de que María es Theotokos ("Madre de Dios"), rechazando la enseñanza de Nestorio que separaba las naturalezas divina y humana de Cristo.</li><li><strong>451, Concilio de Calcedonia:</strong> Este concilio abordó la controversia monofisita, que sostenía que en Jesucristo existía una única naturaleza, divina, en lugar de dos naturalezas distintas, divina y humana. El concilio estableció la doctrina de las dos naturalezas de Cristo, conocida como la "Unión Calcedonia".</li></ul><h3>El Papado y el Cristianismo en Occidente</h3><ul><li>El papado comenzó a consolidar su autoridad y a jugar un papel más prominente en la vida política y espiritual de Occidente, especialmente a medida que el poder secular del Imperio Romano de Occidente declinaba.</li><li>Figuras como el Papa León I ("León Magno") fueron cruciales en este proceso. León negoció con Atila el Huno para evitar el saqueo de Roma y escribió tratados teológicos importantes, incluida su famosa "Tome" que fue influyente en el Concilio de Calcedonia.</li></ul><h3>Avances del Cristianismo Fuera del Imperio Romano</h3><ul><li>La expansión del cristianismo continuó más allá de las fronteras del antiguo Imperio Romano, llegando a regiones como Irlanda y el norte de Europa, donde misioneros como San Patricio jugaron un papel importante en la conversión de las poblaciones locales.</li></ul><h3>Divisiones dentro del Cristianismo</h3><ul><li>Las decisiones de los Concilios de Éfeso y Calcedonia no resolvieron completamente las disputas teológicas, lo que llevó a divisiones permanentes dentro del cristianismo. Las Iglesias que rechazaron las conclusiones de Calcedonia se convirtieron en lo que ahora se conoce como las Iglesias Ortodoxas Orientales.</li></ul><h3>Influencia Cultural y Educativa de la Iglesia</h3><ul><li>La Iglesia jugó un papel crucial en la preservación del conocimiento y la cultura durante este tiempo de transición y turbulencia. Los monasterios, en particular, se convirtieron en centros de aprendizaje y preservación de textos antiguos.</li></ul><p>El siglo V fue una época de grandes cambios y desafíos para el cristianismo, que no solo sobrevivió a la caída del Imperio Romano de Occidente sino que también emergió como la institución religiosa dominante en Europa, sentando las bases para su papel en la Edad Media.</p></div>`
+      },
+      {
+        title: "Siglo VI-VIII", cover: "assets/img/s-VI-VIII.webp", subtitle: `<ul>
+  <li>Conversión de pueblos germánicos y eslavos al cristianismo.</li>
+  <li><strong>589:</strong> El Tercer Concilio de Toledo marca la conversión de los visigodos de arrianismo al cristianismo niceno.</li>
+</ul>`, content: `<div class="markdown prose w-full break-words dark:prose-invert dark"><p>El período que abarca desde el siglo VI hasta el VIII fue crucial para la historia del cristianismo, caracterizado por la expansión del cristianismo en Europa, el desarrollo de la iglesia cristiana en el Imperio Bizantino, y la interacción con el Islam naciente. A continuación, se detallan algunos de los eventos y desarrollos más significativos:</p><h3>Siglo VI</h3><ul><li><strong>Imperio Bizantino y el cristianismo:</strong> Bajo el emperador Justiniano I (527-565), el Imperio Bizantino intentó recuperar las regiones occidentales que habían caído ante diversos pueblos germánicos. Justiniano también es conocido por su vasta construcción de iglesias, incluida la Hagia Sophia en Constantinopla, y por codificar las leyes romanas en el Corpus Juris Civilis, que tenía un fuerte contenido cristiano.</li><li><strong>Controversias teológicas:</strong> Continuaron las disputas cristológicas, especialmente en torno a las decisiones del Concilio de Calcedonia. El cisma monofisita provocó tensiones en las provincias orientales del Imperio Bizantino.</li></ul><h3>Siglo VII</h3><ul><li><strong>Aparición del Islam:</strong> A principios del siglo VII, el profeta Mahoma fundó el Islam en la península arábiga. Tras su muerte en 632, los ejércitos islámicos comenzaron una rápida expansión, conquistando vastas regiones que incluían territorios cristianos en el Medio Oriente, el norte de África y la península ibérica. Esto representó un desafío significativo para el cristianismo, ya que redujo considerablemente los territorios bajo control cristiano y estableció fronteras religiosas que perduran hasta hoy.</li><li><strong>Desarrollo del monacato:</strong> El monacato benedictino, fundado por San Benito de Nursia en el siglo VI, comenzó a expandirse significativamente en Europa durante el siglo VII. La Regla de San Benito proporcionó una guía para la vida monástica que enfatizaba el equilibrio entre la oración y el trabajo, y se convirtió en el modelo estándar para los monasterios en Occidente.</li></ul><h3>Siglo VIII</h3><ul><li><strong>Expansión del cristianismo en Europa:</strong> Misioneros cristianos, como San Bonifacio, conocido como el "Apóstol de los alemanes", trabajaron en la conversión de los pueblos germánicos al cristianismo. Estas misiones, a menudo apoyadas por la autoridad de los papas y reyes francos, establecieron las bases del cristianismo en Europa Central y del Norte.</li><li><strong>Iconoclasia:</strong> Una de las controversias más significativas dentro del Imperio Bizantino fue la crisis iconoclasta (726-787 y 814-842), en la que los emperadores intentaron prohibir la veneración de íconos, lo que provocó un profundo conflicto dentro de la iglesia bizantina.</li><li><strong>Coronación de Carlomagno:</strong> En el año 800, el Papa León III coronó a Carlomagno como "Emperador de los Romanos", un evento que simbolizaba la unión del poder cristiano y político en Europa y el renacimiento del título imperial en Occidente, aunque en una forma distinta al Imperio Romano de Oriente (Bizantino).</li></ul><h3>General</h3><ul><li><strong>Desarrollo de estructuras eclesiásticas:</strong> Durante este período, las estructuras de la iglesia se hicieron más formales y jerárquicas, especialmente en Occidente, donde el Papado comenzó a ejercer mayor autoridad y a establecer normas para la liturgia y la administración eclesiástica.</li><li><strong>Interacción con el Islam:</strong> La expansión del Islam creó un nuevo contexto religioso y político. En algunos casos, esto condujo a la convivencia y al intercambio cultural, pero también a conflictos y guerras. La presencia islámica en la península ibérica y Sicilia, así como las incursiones en otras partes de Europa, tuvieron un impacto duradero en la historia cristiana.</li></ul><p>Este período fue testigo de la transformación del mapa religioso de Europa y el Mediterráneo, con el cristianismo consolidándose en Europa mientras enfrentaba desafíos significativos en el este debido a la expansión islámica.</p></div>`
+      },
+      {
+        title: "Siglo IX-XI", cover: "assets/img/s-IX-XI.webp", subtitle: `<ul>
+  <li><strong>1054:</strong> Gran Cisma, división definitiva entre la Iglesia Católica Romana en Occidente y la Iglesia Ortodoxa en Oriente.</li>
+</ul>`, content: `<div class="markdown prose w-full break-words dark:prose-invert dark"><p>El período del siglo IX al XI fue una era de transición y transformación significativas para el cristianismo, marcada por la consolidación del cristianismo en Europa, la fragmentación política del antiguo Imperio Carolingio, y eventos críticos que llevaron al Gran Cisma entre la Iglesia de Oriente y la Iglesia de Occidente. A continuación se detallan algunos de los eventos y desarrollos clave:</p><h3>Siglo IX</h3><ul><li><strong>Misión de Cirilo y Metodio:</strong> Dos hermanos de Tesalónica, Cirilo y Metodio, fueron enviados como misioneros a la Gran Moravia en 863. Crearon el alfabeto glagolítico, precursor del cirílico, para traducir la Biblia y los textos litúrgicos al eslavo antiguo, facilitando la conversión de los eslavos al cristianismo.</li><li><strong>Tratado de Verdún (843):</strong> La división del Imperio Carolingio entre los tres nietos de Carlomagno marcó el inicio de la fragmentación política en Europa, lo que tuvo importantes consecuencias para la Iglesia, ya que la autoridad papal comenzó a buscar nuevos protectores políticos.</li></ul><h3>Siglo X</h3><ul><li><strong>Formación de estados cristianos:</strong> A medida que se formaban y consolidaban los reinos europeos, la Iglesia jugó un papel crucial en su legitimación y en la promoción de la estabilidad social a través de la fe cristiana.</li><li><strong>Cluny:</strong> La fundación de la Abadía de Cluny en 910 fue un evento significativo para la reforma monástica. Cluny se convirtió en el centro de un movimiento de reforma que promovía la renovación espiritual y la independencia de los monasterios de los laicos y la jerarquía eclesiástica local.</li></ul><h3>Siglo XI</h3><ul><li><strong>Gran Cisma de 1054:</strong> La división formal entre la Iglesia Católica Romana en Occidente y la Iglesia Ortodoxa en Oriente se concretó en 1054, debido a diferencias teológicas, litúrgicas, políticas y culturales acumuladas durante siglos. Los eventos críticos incluyeron la excomunión mutua entre el Patriarca Miguel Cerulario de Constantinopla y el legado papal, el Cardenal Humberto.</li><li><strong>Reforma gregoriana:</strong> Nombrada en honor al Papa Gregorio VII (1073-1085), esta reforma buscó abordar la corrupción dentro de la Iglesia y afirmar la supremacía del papado sobre los asuntos seculares y eclesiásticos. Las cuestiones centrales incluyeron la lucha contra la simonía (venta de cargos eclesiásticos), el celibato clerical y la investidura laica.</li><li><strong>Inicio de las Cruzadas:</strong> En 1095, el Papa Urbano II convocó la Primera Cruzada en el Concilio de Clermont, instando a los cristianos europeos a ayudar a los cristianos bizantinos y recuperar Tierra Santa del dominio musulmán. Esto marcó el inicio de una serie de campañas militares en el Mediterráneo oriental que tendrían profundas consecuencias religiosas, políticas y culturales.</li></ul><h3>General</h3><ul><li><strong>Conversión de Escandinavia:</strong> Durante este período, el cristianismo se expandió a las regiones nórdicas, con misioneros y reyes cristianos jugando un papel clave en la conversión de los pueblos escandinavos.</li><li><strong>Desarrollo de la arquitectura eclesiástica:</strong> La arquitectura románica comenzó a emerger en este período, caracterizada por el uso de bóvedas de cañón, arcos de medio punto y gruesos muros de piedra, reflejando la expansión y consolidación del cristianismo en Europa.</li></ul><p>Este período fue crucial para definir las estructuras y doctrinas de la Iglesia que perdurarían en los siglos siguientes, marcado especialmente por el cisma entre Oriente y Occidente y el comienzo de las Cruzadas, eventos que reconfiguraron el panorama religioso y político de Europa y el Mediterráneo.</p></div>`
+      },
+      {
+        title: "Siglo XII-XIII", cover: "assets/img/s-XII-XIII.webp", subtitle: `<ul>
+  <li>Fundación de las órdenes mendicantes, como los franciscanos y los dominicos.</li>
+  <li>Cruzadas para recuperar Tierra Santa del control musulmán.</li>
+</ul>`, content: `<div class="markdown prose w-full break-words dark:prose-invert dark"><p>El período que abarca los siglos XII y XIII fue una época de vital importancia en la historia del cristianismo, marcada por un florecimiento intelectual, la consolidación de la estructura eclesiástica, el surgimiento de nuevas órdenes religiosas y el inicio de movimientos heréticos. A continuación, algunos de los eventos y desarrollos clave:</p><h3>Siglo XII</h3><ul><li><strong>Renacimiento del siglo XII:</strong> Este período vio un renacimiento en el pensamiento filosófico y teológico en Europa Occidental, impulsado en parte por el redescubrimiento y estudio de textos antiguos y árabes. Destacados eruditos como Pedro Abelardo exploraron y debatieron temas teológicos y filosóficos complejos.</li><li><strong>Desarrollo de las universidades:</strong> Las primeras universidades en Bolonia, París, y Oxford surgieron en este siglo, convirtiéndose en centros de aprendizaje teológico y secular. La Universidad de París, en particular, se convirtió en un destacado centro de estudios teológicos.</li><li><strong>Cruzadas:</strong> Continuaron las Cruzadas para recuperar Tierra Santa de los musulmanes, incluyendo la desastrosa Segunda Cruzada (1147-1149) y la Tercera Cruzada (1189-1192). Estas expediciones no solo tuvieron motivaciones religiosas, sino que también reflejaron las ambiciones políticas y económicas europeas.</li><li><strong>Ascenso de las órdenes militares:</strong> Se fundaron órdenes militares como los Templarios y los Hospitalarios, combinando los ideales monásticos con el militarismo para proteger a los peregrinos cristianos y los reinos cristianos en Tierra Santa.</li></ul><h3>Siglo XIII</h3><ul><li><strong>Fundación de las órdenes mendicantes:</strong> Las órdenes mendicantes, especialmente los franciscanos fundados por San Francisco de Asís (1209) y los dominicos fundados por Santo Domingo de Guzmán (1216), representaron una nueva forma de vida religiosa centrada en la pobreza, la predicación y el trabajo pastoral en áreas urbanas. Estas órdenes jugaron un papel crucial en la renovación espiritual y en los esfuerzos de la Iglesia para abordar los problemas de la pobreza y la herejía.</li><li><strong>Cuarto Concilio de Letrán (1215):</strong> Convocado por el Papa Inocencio III, este concilio fue uno de los más importantes de la Edad Media. Estableció reformas en la administración de la Iglesia, definió la doctrina de la transubstanciación y promovió la cruzada contra los albigenses.</li><li><strong>Lucha contra la herejía:</strong> El siglo XIII vio un aumento en la actividad herética, particularmente el catarismo en el sur de Francia. La respuesta de la Iglesia incluyó la Cruzada Albigense (1209-1229) contra los cátaros y la creación de la Inquisición para combatir la herejía.</li><li><strong>Santos y eruditos:</strong> Figuras como Santo Tomás de Aquino y San Alberto Magno contribuyeron significativamente a la escolástica, un método de pensamiento crítico y debate que buscaba reconciliar la fe cristiana con la filosofía aristotélica. Santo Tomás de Aquino, en particular, es conocido por su obra "Summa Theologica", que sigue siendo una de las principales referencias teológicas en el catolicismo.</li><li><strong>Las Cruzadas del Norte:</strong> Las cruzadas en el Báltico y Europa del Este, como la Cruzada Livonia, buscaban convertir a las poblaciones paganas y expandir los territorios cristianos.</li></ul><h3>General</h3><ul><li><strong>Crecimiento de las ciudades y el comercio:</strong> El aumento del comercio y el crecimiento de las ciudades en Europa occidental llevaron a cambios sociales que influyeron en la Iglesia, incluyendo la necesidad de abordar las necesidades espirituales de una población urbana en crecimiento.</li><li><strong>Arte y arquitectura:</strong> El período gótico comenzó en el siglo XII, llevando a la construcción de catedrales imponentes que reflejaban la devoción religiosa y el poder de la Iglesia, como la Catedral de Notre-Dame en París.</li></ul><p>Los siglos XII y XIII fueron fundamentales</p></div>`
+      },
+      {
+        title: "Siglo XIV-XV", cover: "assets/img/s-XIV-XV.webp", subtitle: `<ul>
+  <li><strong>1378-1417:</strong> Cisma de Occidente, cuando dos y luego tres hombres afirmaron ser el verdadero Papa.</li>
+  <li><strong>1453:</strong> Caída de Constantinopla ante los otomanos, marcando el fin de la era bizantina del cristianismo.</li>
+</ul>`, content: `<div class="markdown prose w-full break-words dark:prose-invert dark"><p>Los siglos XIV y XV fueron períodos de profundos cambios y desafíos para el cristianismo, marcados por crisis políticas, sociales y religiosas, así como por importantes desarrollos culturales y teológicos. A continuación se detallan algunos de los eventos y desarrollos clave:</p><h3>Siglo XIV</h3><ul><li><strong>La Peste Negra (1347-1351):</strong> Esta devastadora pandemia azotó Europa, causando la muerte de aproximadamente un tercio de la población. Este catastrófico evento tuvo profundas repercusiones sociales y religiosas, incluyendo una crisis en la fe de muchas personas y un aumento en la devoción y las prácticas piadosas en un intento de buscar protección divina.</li><li><strong>La Guerra de los Cien Años (1337-1453):</strong> Este prolongado conflicto entre Inglaterra y Francia tuvo significativas implicaciones políticas y sociales, y también afectó a la Iglesia, especialmente en términos de su riqueza, poder y la relación entre la Iglesia y el Estado.</li><li><strong>Crisis papal y el Cisma de Occidente (1378-1417):</strong> Después de la controversia sobre la residencia papal en Aviñón (1309-1377), el regreso del papado a Roma condujo a una división en la Iglesia cuando dos y luego tres hombres reclamaron simultáneamente el papado. Este cisma dañó gravemente la reputación de la Iglesia y su autoridad espiritual.</li></ul><h3>Siglo XV</h3><ul><li><strong>Concilio de Constanza (1414-1418):</strong> Este concilio se convocó para resolver el Cisma de Occidente y logró su objetivo con la elección del Papa Martín V en 1417, lo que restauró la unidad formal a la Iglesia Católica Romana. El concilio también abordó la herejía y la necesidad de reforma dentro de la Iglesia.</li><li><strong>Humanismo y Renacimiento:</strong> El movimiento humanista y el inicio del Renacimiento en Italia promovieron un renovado interés en las artes, las ciencias y los textos clásicos antiguos. Aunque centrado en temas seculares, el humanismo también influyó en la teología y la práctica religiosa, enfatizando el potencial humano y la relación personal con Dios.</li><li><strong>La caída de Constantinopla (1453):</strong> La conquista otomana de Constantinopla marcó el fin del Imperio Bizantino y tuvo enormes consecuencias para el cristianismo ortodoxo y Occidente, incluyendo el estímulo del interés en el estudio de los clásicos griegos, que contribuyó al Renacimiento.</li><li><strong>Desarrollos en la impresión:</strong> La invención de la imprenta de tipos móviles por Johannes Gutenberg alrededor de 1450 revolucionó la difusión del conocimiento, incluidos los textos bíblicos y teológicos, lo que facilitó la diseminación de ideas reformistas y desafió el monopolio de la Iglesia sobre la interpretación de las Escrituras.</li></ul><h3>General</h3><ul><li><strong>Crecimiento de los movimientos de reforma:</strong> A lo largo de estos siglos, surgieron varios movimientos que buscaban reformar la Iglesia desde dentro, algunos de los cuales, como los lolardos en Inglaterra y los husitas en Bohemia, prefiguraron las reformas protestantes del siglo XVI.</li><li><strong>Exploración y expansión:</strong> El inicio de la era de la exploración, especialmente con los viajes de figuras como Cristóbal Colón al final del siglo XV, comenzó a expandir el horizonte geográfico y cultural de Europa. Esto eventualmente llevaría a la difusión del cristianismo a las Américas, África y Asia en los siglos siguientes.</li></ul><p>Los siglos XIV y XV representaron una época de transición crucial para el cristianismo, en la que se sembraron las semillas de cambios más radicales que se manifestarían en la Reforma Protestante y el Renacimiento. La combinación de crisis internas y desarrollos culturales y tecnológicos preparó el escenario para una transformación profunda de la Iglesia y la sociedad europea.</p></div>`
+      },
+      {
+        title: "Siglo XVI", cover: "assets/img/s-XVI.webp", subtitle: `<ul>
+  <li><strong>1517:</strong> Martín Lutero publica las 95 Tesis, marcando el inicio de la Reforma Protestante.</li>
+  <li><strong>1545-1563:</strong> Concilio de Trento, contrarreforma católica y definición de doctrinas frente al protestantismo.</li>
+</ul>`, content: `<div class="markdown prose w-full break-words dark:prose-invert dark"><p>El siglo XVI fue un período de profundos cambios religiosos, políticos y culturales en Europa, marcado principalmente por la Reforma Protestante y la Contrarreforma Católica. Estos eventos reconfiguraron el panorama religioso de Europa y tuvieron un impacto duradero en el cristianismo y la sociedad occidental. A continuación, se detallan algunos de los eventos y desarrollos clave:</p><h3>Reforma Protestante</h3><ul><li><strong>1517:</strong> La publicación de las "95 Tesis" por Martín Lutero en Wittenberg, Alemania, es comúnmente vista como el inicio de la Reforma Protestante. Lutero criticó varias prácticas de la Iglesia Católica, especialmente la venta de indulgencias, y abogó por una mayor centralidad de las Escrituras en la vida cristiana.</li><li><strong>1521:</strong> Lutero fue excomulgado por el Papa León X y condenado como hereje en la Dieta de Worms, pero su movimiento continuó ganando apoyo en varias partes de Europa.</li><li><strong>1522-1526:</strong> La traducción de la Biblia al alemán por Lutero hizo que las Escrituras fueran accesibles a un público más amplio, promoviendo la alfabetización y el pensamiento crítico religioso.</li></ul><h3>Expansión de la Reforma</h3><ul><li><strong>Juan Calvino:</strong> Se convirtió en una figura influyente de la Reforma con sus enseñanzas en Ginebra, Suiza. Calvino enfatizó la soberanía de Dios y la predestinación, y su teología tuvo un impacto significativo en muchas partes de Europa y más tarde en América.</li><li><strong>Reino de Inglaterra:</strong> Enrique VIII rompió con la Iglesia Católica y estableció la Iglesia de Inglaterra después de que el Papa se negara a anular su matrimonio con Catalina de Aragón. Esto llevó a la Disolución de los Monasterios y a una reforma religiosa más amplia bajo su hijo Eduardo VI y más tarde Isabel I.</li></ul><h3>Contrarreforma o Reforma Católica</h3><ul><li><strong>Concilio de Trento (1545-1563):</strong> Este concilio fue convocado para abordar las cuestiones planteadas por los reformadores protestantes y para reformar la Iglesia desde dentro. Se reafirmaron muchas doctrinas católicas y se implementaron reformas en la disciplina eclesiástica, incluida la mejora de la educación del clero y la regulación de la vida eclesiástica.</li><li><strong>La Orden de los Jesuitas:</strong> Fundada por Ignacio de Loyola, esta nueva orden religiosa se dedicó a la renovación espiritual, la educación y la misión evangelizadora. Los jesuitas jugaron un papel crucial en la revitalización de la Iglesia Católica y en la expansión misionera en Asia y las Américas.</li></ul><h3>Guerras de Religión</h3><ul><li><strong>Conflictos religiosos:</strong> La división entre católicos y protestantes condujo a una serie de conflictos religiosos y guerras civiles en Europa, incluidas las Guerras de Religión en Francia, la Guerra de los Ochenta Años en los Países Bajos y la Guerra de los Treinta Años, que involucró a gran parte de Europa.</li></ul><h3>Cambios Culturales y Científicos</h3><ul><li><strong>Humanismo y Renacimiento:</strong> Continuaron influyendo en la cultura y el pensamiento europeo, promoviendo un enfoque en el estudio de textos clásicos, el desarrollo de las artes y la exploración del mundo natural.</li><li><strong>Revolución científica:</strong> Las ideas y descubrimientos de figuras como Copérnico, Kepler y Galileo comenzaron a desafiar las concepciones tradicionales del cosmos, lo que eventualmente llevaría a conflictos con las autoridades eclesiásticas.</li></ul><p>El siglo XVI fue un siglo de rupturas y transformaciones que alteraron la estructura de la Iglesia y la sociedad europea de manera fundamental, estableciendo las bases para el mundo moderno.</p></div>`
+      },
+      {
+        title: "Siglo XVII-XVIII", cover: "assets/img/s-XVII-XVIII.webp", subtitle: `<ul>
+  <li>Edad de la Ilustración: Desafío y cambio en las percepciones religiosas debido a la razón y la ciencia.</li>
+</ul>
+`, content: `<div class="markdown prose w-full break-words dark:prose-invert dark"><p>Los siglos XVII y XVIII fueron períodos de grandes cambios en la historia del cristianismo, caracterizados por el conflicto religioso, la consolidación de la Reforma y la Contrarreforma, el auge de la Ilustración y los inicios del movimiento misionero moderno. Estos siglos vieron tanto la consolidación de las divisiones religiosas en Europa como importantes desarrollos intelectuales y espirituales que afectaron al cristianismo.</p><h3>Siglo XVII</h3><ul><li><strong>Guerra de los Treinta Años (1618-1648):</strong> Este conflicto, en gran parte centrado en las tensiones religiosas entre católicos y protestantes, devastó gran parte de Europa Central y alteró el panorama político y religioso. El Tratado de Westfalia, que puso fin a la guerra, estableció el principio de "cuius regio, eius religio" (la religión del gobernante determina la religión de los gobernados), consolidando las divisiones religiosas en Europa.</li><li><strong>Puritanismo en Inglaterra:</strong> El puritanismo, que buscaba una mayor "purificación" de la Iglesia de Inglaterra, encontró tanto apoyo como resistencia. Esta tensión culminó en la Guerra Civil Inglesa, el interregno bajo Oliver Cromwell, y la eventual restauración de la monarquía.</li><li><strong>Desarrollo del Pietismo:</strong> En Alemania, el pietismo surgió como un movimiento dentro del luteranismo que enfatizaba la devoción personal y la experiencia religiosa sobre la ortodoxia dogmática. Figuras como Philipp Jakob Spener fueron pioneras en este enfoque, que influiría en el desarrollo posterior del metodismo y el movimiento evangélico.</li></ul><h3>Siglo XVIII</h3><ul><li><strong>Ilustración:</strong> Este movimiento intelectual enfatizó la razón, la ciencia y el humanismo, desafiando muchas tradiciones y enseñanzas religiosas. Filósofos como Voltaire y Diderot criticaron a la Iglesia y abogaron por la tolerancia religiosa y la separación entre la Iglesia y el Estado.</li><li><strong>Gran Despertar:</strong> En las colonias británicas de América del Norte, el Primer Gran Despertar fue un movimiento de renacimiento religioso que ocurrió en la década de 1730 y 1740. Predicadores como Jonathan Edwards y George Whitefield enfatizaron la necesidad de una conversión personal y una relación directa con Dios, lo que llevó a un aumento del fervor religioso y la formación de nuevas denominaciones.</li><li><strong>Misiones cristianas:</strong> El siglo XVIII también vio el comienzo del movimiento misionero protestante moderno, con la formación de sociedades misioneras como la Sociedad Misionera de Londres y la Sociedad Misionera Danesa. Estas organizaciones enviaron misioneros a Asia, África y el Pacífico, marcando el inicio de una expansión global significativa del cristianismo.</li></ul><h3>Catolicismo</h3><ul><li><strong>Contrarreforma:</strong> La Iglesia Católica continuó sus esfuerzos de reforma interna y defensa contra las críticas protestantes e ilustradas. La educación religiosa y la espiritualidad barroca, que enfatizaban la emoción y la devoción, fueron aspectos destacados de este período.</li><li><strong>Supresión de los jesuitas:</strong> En 1773, el Papa Clemente XIV suprimió la Compañía de Jesús (jesuitas) bajo presión de varias monarquías europeas, aunque sería restaurada en 1814. Este evento refleja las tensiones entre la autoridad eclesiástica y los poderes seculares de la época.</li></ul><h3>General</h3><ul><li><strong>Desarrollo teológico y filosófico:</strong> Los siglos XVII y XVIII fueron testigos de debates teológicos y filosóficos significativos, incluyendo el deísmo, que defendía una religión natural basada en la razón y rechazaba la revelación divina y los dogmas de la fe tradicional.</li></ul><p>Estos siglos fueron una época de transición crucial, en la que las tensiones religiosas dieron lugar a guerras y conflictos, pero también a movimientos de renovación y expansión que remodelaron el cristianismo en el contexto de un mundo en rápida evolución.</p></div>`
+      },
+      {
+        title: "Siglo XIX", cover: "assets/img/s-XIX.webp", subtitle: `<ul>
+  <li><strong>Vaticano I (1869-1870):</strong> Definición de la infalibilidad papal.</li>
+  <li>Expansión misionera global del cristianismo.</li>
+</ul>
+`, content: `<div class="markdown prose w-full break-words dark:prose-invert dark"><p>El siglo XIX fue un período de grandes transformaciones para el cristianismo, caracterizado por el despertar religioso, la expansión misionera, los desafíos intelectuales y los cambios socio-políticos. A continuación se detallan algunos de los eventos y desarrollos clave:</p><h3>Despertares y Revivalismo</h3><ul><li><strong>Segundo Gran Despertar:</strong> En Estados Unidos, este movimiento de avivamiento comenzó a principios del siglo XIX y se extendió durante varias décadas. Fue marcado por grandes reuniones al aire libre, la conversión masiva y el énfasis en la experiencia religiosa personal. Contribuyó al crecimiento de denominaciones como los bautistas y los metodistas y al surgimiento de movimientos sociales como el abolicionismo.</li><li><strong>Movimientos similares en Europa:</strong> En el Reino Unido y partes de Europa, movimientos de avivamiento similares enfatizaron la piedad personal, la evangelización y el activismo social, como el movimiento evangélico dentro de la Iglesia de Inglaterra.</li></ul><h3>Expansión Misionera</h3><ul><li><strong>Era Misionera Moderna:</strong> El siglo XIX es a menudo llamado la "gran sigla misionera", durante la cual los cristianos de Europa y América del Norte emprendieron esfuerzos misioneros a gran escala en África, Asia y el Pacífico. Organizaciones como la Sociedad Misionera de Londres y la Junta Americana de Comisionados para Misiones Extranjeras enviaron miles de misioneros para evangelizar, educar y proporcionar asistencia médica.</li></ul><h3>Catolicismo</h3><ul><li><strong>Restauración y consolidación:</strong> Después de los trastornos causados por la Revolución Francesa y las guerras napoleónicas, la Iglesia Católica buscó restaurar su influencia y estructuras en Europa. El Papa Pío IX, que reinó desde 1846 hasta 1878, fue una figura clave en este proceso.</li><li><strong>Concilio Vaticano I (1869-1870):</strong> Este concilio es notable por su definición de la infalibilidad papal, afirmando que el Papa es infalible cuando habla ex cathedra sobre cuestiones de fe y moral. El concilio también abordó las relaciones entre la Iglesia y el mundo moderno.</li></ul><h3>Desafíos Intelectuales y Científicos</h3><ul><li><strong>Crítica bíblica y teología liberal:</strong> El siglo XIX vio el desarrollo de la crítica bíblica histórico-crítica y el surgimiento de la teología liberal, que buscaba reconciliar las enseñanzas cristianas con los avances modernos en ciencia e historia.</li><li><strong>Darwinismo:</strong> La publicación de "El origen de las especies" de Charles Darwin en 1859 y su teoría de la evolución por selección natural presentaron un desafío significativo para las interpretaciones tradicionales de la creación bíblica, provocando intensos debates religiosos y científicos.</li></ul><h3>Cambios Socio-políticos</h3><ul><li><strong>Separación Iglesia-Estado:</strong> En muchas naciones, el siglo XIX fue testigo de la progresiva separación entre la Iglesia y el Estado, con leyes que promovían la libertad religiosa y reducían el poder y la influencia de la Iglesia en asuntos gubernamentales.</li><li><strong>Movimientos sociales:</strong> Los cristianos estuvieron involucrados en varios movimientos de reforma social, incluyendo el abolicionismo, el movimiento por la templanza y las campañas por la justicia social y laboral.</li></ul><h3>Ortodoxia Oriental</h3><ul><li><strong>Desafíos y resiliencia:</strong> Las Iglesias Ortodoxas en el Imperio Otomano y bajo el dominio ruso enfrentaron desafíos debido a las presiones políticas y religiosas, pero también experimentaron períodos de renovación y crecimiento espiritual.</li></ul><p>El siglo XIX fue un período de adaptación y transformación para el cristianismo, enfrentando los desafíos de la modernidad mientras se expandía globalmente y se involucraba en cuestiones sociales y científicas.</p></div>`
+      },
+      {
+        title: "Siglo XX", cover: "assets/img/s-XX.webp", subtitle: `<ul>
+  <li><strong>1962-1965:</strong> Concilio Vaticano II, renovación de la Iglesia Católica y apertura al diálogo ecuménico.</li>
+  <li>Caída del comunismo en Europa del Este (1989-1991): Reapertura de la práctica religiosa en regiones previamente restringidas.</li>
+</ul>
+`, content: `<div class="markdown prose w-full break-words dark:prose-invert dark"><p>El siglo XX fue un período de profundos cambios y desarrollos para el cristianismo, caracterizado por la diversificación teológica, el crecimiento en el hemisferio sur, importantes diálogos ecuménicos y el enfrentamiento con ideologías totalitarias y desafíos sociales. A continuación, se detallan algunos de los eventos y desarrollos clave:</p><h3>Ecumenismo y Diálogo Interreligioso</h3><ul><li><strong>Movimiento Ecuménico:</strong> El siglo XX vio un fuerte impulso hacia el ecumenismo, buscando la unidad y la cooperación entre diferentes denominaciones cristianas. Eventos importantes incluyen la formación del Consejo Mundial de Iglesias en 1948.</li><li><strong>Diálogo Interreligioso:</strong> Hubo un creciente reconocimiento de la importancia del diálogo entre diferentes religiones. El Concilio Vaticano II, por ejemplo, marcó un cambio significativo en la actitud de la Iglesia Católica hacia otras religiones, especialmente con la declaración Nostra Aetate.</li></ul><h3>Concilio Vaticano II</h3><ul><li><strong>Concilio Vaticano II (1962-1965):</strong> Convocado por el Papa Juan XXIII, este concilio fue un punto de inflexión para la Iglesia Católica, promoviendo la renovación litúrgica, la apertura al mundo moderno y el diálogo ecuménico e interreligioso. Sus documentos y decretos han influido profundamente en la teología y la práctica católicas.</li></ul><h3>Cristianismo en el Mundo Global</h3><ul><li><strong>Crecimiento en África, Asia y América Latina:</strong> Mientras que en Europa y América del Norte la secularización avanzaba, el cristianismo experimentó un rápido crecimiento en otras partes del mundo, especialmente en África, Asia y América Latina, llevando a un cambio en el centro de gravedad del cristianismo hacia el sur global.</li></ul><h3>Desafíos del Totalitarismo</h3><ul><li><strong>Comunismo y Nazismo:</strong> El cristianismo enfrentó desafíos significativos bajo regímenes totalitarios en la Unión Soviética, Europa del Este, China y la Alemania nazi. Muchos cristianos sufrieron persecución, represión y martirio por su fe durante estos períodos.</li></ul><h3>Teología y Cambio Social</h3><ul><li><strong>Teología de la Liberación:</strong> Surgida en América Latina en la década de 1960, esta teología enfatiza la liberación de la opresión social, económica y política como parte esencial del mensaje del Evangelio.</li><li><strong>Movimientos de Justicia Social:</strong> Los cristianos desempeñaron roles clave en varios movimientos de justicia social, incluidos los derechos civiles en los Estados Unidos, la lucha contra el apartheid en Sudáfrica y los movimientos por la paz y los derechos humanos en todo el mundo.</li></ul><h3>Innovaciones Teológicas</h3><ul><li><strong>Diversificación Teológica:</strong> El siglo XX vio el desarrollo de nuevas perspectivas teológicas, como la teología feminista, la teología negra, y la teología queer, que buscan reinterpretar las enseñanzas cristianas a la luz de las experiencias de grupos marginados.</li></ul><h3>Desafíos Internos</h3><ul><li><strong>Crisis de abuso sexual:</strong> La Iglesia Católica, en particular, enfrentó una crisis significativa debido a las revelaciones de abuso sexual por parte del clero. Este escándalo ha tenido un profundo impacto en la iglesia y ha provocado llamados a la reforma y la transparencia.</li></ul><h3>Tecnología y Comunicación</h3><ul><li><strong>Medios de Comunicación:</strong> El uso de la televisión, la radio y, más tarde, el internet, transformó la forma en que se difunden los mensajes cristianos, permitiendo una mayor conexión entre comunidades cristianas de diferentes partes del mundo.</li></ul><p>El siglo XX fue un período de gran complejidad para el cristianismo, enfrentando desafíos sin precedentes, pero también experimentando una expansión global y una profundización en el diálogo ecuménico e interreligioso. Estos desarrollos sentaron las bases para las continuas transformaciones del cristianismo en el siglo XXI.</p></div>`
+      },
+      {
+        title: "Siglo XXI", cover: "assets/img/s-XXI.webp", subtitle: `<ul>
+  <li>Continuación del diálogo interreligioso y ecuménico.</li>
+  <li>Creciente preocupación por los temas de justicia social y medio ambiente en el contexto cristiano.</li>
+</ul>`, content: `<div class="markdown prose w-full break-words dark:prose-invert dark"><p>El siglo XXI ha visto continuos desarrollos y desafíos para el cristianismo en un mundo cada vez más globalizado y digitalizado. Aunque aún estamos en las primeras décadas de este siglo, algunos temas y tendencias emergentes incluyen:</p><h3>Globalización del Cristianismo</h3><ul><li><strong>Cambio hacia el Sur Global:</strong> La vitalidad del cristianismo ha continuado desplazándose hacia África, Asia y América Latina, con un crecimiento significativo en estas regiones. Esto está cambiando el rostro del cristianismo, que ahora es más diverso cultural y étnicamente.</li></ul><h3>Desafíos de la Secularización</h3><ul><li><strong>Europa y América del Norte:</strong> En contraste con el crecimiento en el sur global, muchas partes de Europa y América del Norte han experimentado un aumento en la secularización, con una disminución en la asistencia a la iglesia y en la identificación con tradiciones cristianas.</li></ul><h3>Avances Tecnológicos y Redes Sociales</h3><ul><li><strong>Digitalización de la Fe:</strong> Internet y las redes sociales han transformado la forma en que las personas practican su fe, ofreciendo nuevas formas de comunidad, evangelización y servicio. Las iglesias han adoptado tecnologías digitales para la transmisión de servicios, estudios bíblicos en línea y comunidades virtuales de oración.</li></ul><h3>Diálogo Interreligioso y Ecumenismo</h3><ul><li><strong>Continuación del Diálogo:</strong> Los esfuerzos ecuménicos y el diálogo interreligioso han continuado, buscando la comprensión mutua y la cooperación en cuestiones sociales y éticas globales.</li></ul><h3>Respuestas a Crisis Globales</h3><ul><li><strong>Cambio Climático y Justicia Social:</strong> El cristianismo ha estado involucrado activamente en movimientos globales que abordan el cambio climático, la pobreza, la injusticia social y los derechos humanos, reflejando una creciente conciencia de la responsabilidad cristiana por la creación y los marginados.</li></ul><h3>Desafíos Internos y Reforma</h3><ul><li><strong>Crisis y Reforma:</strong> Las iglesias han enfrentado varios desafíos internos, incluidas las continuas repercusiones de los escándalos de abuso sexual en la Iglesia Católica y otros. Estos han provocado llamados a la reforma, la transparencia y la renovación espiritual.</li></ul><h3>Crecimiento de las Iglesias Pentecostales y Carismáticas</h3><ul><li><strong>Expansión Pentecostal:</strong> Las denominaciones pentecostales y carismáticas han experimentado un rápido crecimiento, particularmente en el sur global, destacando por su énfasis en la experiencia personal del Espíritu Santo, la sanidad y la profecía.</li></ul><h3>Teología en Contexto</h3><ul><li><strong>Teología Contextual:</strong> Ha habido un énfasis continuo en la teología contextual, que busca entender el cristianismo en relación con diversos contextos culturales y sociales, incluyendo la teología feminista, la teología de la liberación y las perspectivas indígenas.</li></ul><h3>Persecución de Cristianos</h3><ul><li><strong>Preocupaciones sobre la Persecución:</strong> La persecución de cristianos en ciertas áreas del mundo, especialmente en partes de Medio Oriente, África y Asia, ha sido motivo de preocupación y ha llevado a llamados a la oración, la sensibilización y la acción política.</li></ul><p>El cristianismo en el siglo XXI está navegando por un mundo complejo, enfrentando tanto desafíos internos como externos, pero también encontrando nuevas oportunidades para el crecimiento, el diálogo y el servicio en un paisaje global en rápida evolución.</p></div>`
+      },
+    ];
+
+    //a function to load the content
+    function loadContent(index) {
+      let item = items[index];
+      $("#img-cover").attr("src", item.cover);
+      $("#title").html(item.title);
+      $("#subtitle").html(item.subtitle);
+      $("#full-content").html(item.content);
+    }
+
+    //init icons
+    $(".previous").hide();
+    $(".next").show();
+
+    //a function to navigate through the content, hide previous and next buttons when needed without jquery
+    let currentIndex = 0;
+    $(".nav-icon").click(function () {
+      if ($(this).hasClass("previous")) {
+        currentIndex--;
+      } else {
+        currentIndex++;
+      }
+      if (currentIndex <= 0) {
+        currentIndex = 0;
+        $(".previous").hide();
+      } else {
+        $(".previous").show();
+      }
+      if (currentIndex >= items.length - 1) {
+        currentIndex = items.length - 1;
+        $(".next").hide();
+      } else {
+        $(".next").show();
+      }
+      loadContent(currentIndex);
+    });
+
+    //load the first content
+    loadContent(0);
+
+  </script>
+</body>
+
+</html>
